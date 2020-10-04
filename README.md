@@ -1,6 +1,6 @@
 # URL Shortener
 
-This is a simple single page web app that I built in one day. This app uses Express routing to redirect short links to the long URL. It uses HTML and JS for the front end, and Express and MongoDB for the backend routing and database. 
+This is a simple single page web app that I built in one day. This app is a URL Shortener that allows the user to enter a long url, and then creates a short link that will redirect to the long url. This app uses Express routing to redirect short links to the long URL. It uses HTML and JS for the front end, and Express and MongoDB for the backend routing and database. 
 
 A live version can be seen here: [short.czjlee.com](https://short.czjlee.com)
 
