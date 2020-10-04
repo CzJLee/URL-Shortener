@@ -15,29 +15,42 @@
 		<div class="col-md-5 m-auto">
 			<div class="card card-body text-center">
 				<!-- Use Font Awesome Node JS logo -->
-				<h1><i class="fas fa-link"></i> URL Shortener</h1> 
+				<h1><i class="fas fa-link"></i> URL Shrinker</h1> 
 				
-				<p>Enter a URL to magically shorten!</p>
+				<p>Enter a URL to magically cast shrinkify!</p>
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="Long URL" aria-label="Long URL" aria-describedby="button-addon2">
+					<input type="text" class="form-control" placeholder="Long URL" aria-label="Long URL" aria-describedby="button-addon2" id="long-url">
 					<div class="input-group-append">
-						<button class="btn btn-outline-primary" type="button" id="button-addon2">Shorten!</button>
+						<button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="shortenURL()">Shorten!</button>
 					</div>
 				</div>
 
-				<div class="input-group mb-3">
+
+				<div class="alert alert-primary" role="alert" id="test-alert" hidden>
+					Abracadabra! Your new link is <a href="#" class="alert-link" id="short-link" target="_blank"></a>
+				</div>
+
+				<div>
+					<button type="button" class="btn btn-success" id="copy-button" onclick="copyToClipboard()" hidden>Copy Link</button>
+					<button type="button" class="btn btn-info" id="edit-button" onclick="editButton()" hidden>Edit Link</button>
+				</div>
+
+				<div class="input-group mb-3" id="short-url-group" hidden>
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon3">short.czjlee.com/</span>
 					</div>
-					<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-					<div class="input-group-append" id="button-addon4">
-						<button class="btn btn-outline-success" type="button">Copy</button>
-						<button class="btn btn-outline-info" type="button">Edit</button>
-					</div>
+					<input type="text" class="form-control" id="short-url" aria-describedby="basic-addon3">
+				</div>
+
+				<div>
+					<button type="button" class="btn btn-info" id="save-button" onclick="saveButton()" hidden>Save Link</button>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Form JS -->
+	<script src="script.js"></script>
 
 	<!-- Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
