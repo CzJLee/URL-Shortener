@@ -10,17 +10,21 @@ const PORT = process.env.PORT || 3000;
 const dbURI = process.env.DB_URI;
 
 // Connect to MongoDB Atlas
-let collection;
-const client = new mongodb.MongoClient(dbURI, {useUnifiedTopology: true})
-client.connect((error, connection) => {
-	if (error) {
-		throw(error)
-	}
-	else {
+const client = new mongodb.MongoClient(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+client.connect()
+	.catch(error => {throw(error)})
+	.then(async connection => {
 		console.log("Successfully connected to MongoDB")
-		collection = connection.db("urls").collection("urls")
-	}
-})
+		const collection = connection.db("urls").collection("urls")
+
+		const obj = {url: "testurl.com"};
+		const result = await collection.insertOne(obj);
+
+		console.log(
+			`${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`,
+		);
+	});
+
 
 const app = express();
 
