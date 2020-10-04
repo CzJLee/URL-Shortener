@@ -1,8 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongodb = require("mongodb");
-const { json } = require("body-parser");
-const { mongo } = require("mongoose");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 3000;
