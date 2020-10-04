@@ -17,7 +17,7 @@ A live version can be seen here: [short.czjlee.com](https://short.czjlee.com)
 	- [Future Changes](#future-changes)
 		- [User Privileges](#user-privileges)
 		- [UI Updates](#ui-updates)
-		- [POST vs PUT](#post-vs-put)
+		- [POST vs. PUT](#post-vs-put)
 		- [Better MongoDB Access](#better-mongodb-access)
 
 ## How to use
@@ -68,7 +68,7 @@ It would be nice to allow users to edit or delete short urls that they have made
 ### UI Updates
 Most of the Javascript is handling changing the visibility of the buttons and input fields. This can be tidied up using a more advanced frame work, but I wanted to stick to vanilla JS for this app. 
 
-### POST vs PUT
+### POST vs. PUT
 At this time, editing a created URL sends a post request to create a new object in the database. Thus, both the randomly generated short link and the user created short link both redirect to the same long url link. While this does not really matter at this scale, it would be nice to make the distinction if user accounts are implemented. 
 
 ### Better MongoDB Access
