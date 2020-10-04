@@ -1,4 +1,4 @@
-async function shortenURL() {
+function shortenURL() {
 	const longURL = document.getElementById("long-url").value;
 
 	// Input validation
@@ -8,10 +8,8 @@ async function shortenURL() {
 	bodyData = {
 		url: longURL
 	}
-	
-	let shortID;
 
-	await fetch('/', {
+	fetch('/', {
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
@@ -21,23 +19,23 @@ async function shortenURL() {
 	})
 	.then(response => response.json())
 	.then(data => {
-		shortID = data._id
+		const shortURL = data._id
+
+		const shortLink = "short.czjlee.com/" + shortURL
+
+		// Reveal copy and edit buttons
+		document.getElementById("copy-button").hidden = false;
+		document.getElementById("edit-button").hidden = false;
+		
+		// Create new URL alert
+		document.getElementById("short-url").value = shortURL;
+		document.getElementById("url-alert").hidden = false;
+		document.getElementById("short-link").innerHTML = shortLink;
+		document.getElementById("short-link").href = shortURL; 
 	})
 	.catch(error => {
-		console.error('Error:', error);
+		document.getElementById("danger-alert").hidden = false;
 	});
-
-	const shortURL = "short.czjlee.com/" + shortID
-
-	// Reveal copy and edit buttons
-	document.getElementById("copy-button").hidden = false;
-	document.getElementById("edit-button").hidden = false;
-	
-	// Create new URL alert
-	document.getElementById("short-url").value = shortID;
-	document.getElementById("url-alert").hidden = false;
-	document.getElementById("short-link").innerHTML = shortURL;
-	document.getElementById("short-link").href = shortURL; 
 }
 
 function copyToClipboard() {
