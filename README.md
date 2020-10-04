@@ -2,9 +2,12 @@
 
 This is a simple single page web app that I built in one day. This app uses Express routing to redirect short links to the long URL. It uses HTML and JS for the front end, and Express and MongoDB for the backend routing and database. 
 
+A live version can be seen here: [short.czjlee.com](https://short.czjlee.com)
+
 - [URL Shortener](#url-shortener)
 	- [How to use](#how-to-use)
 	- [Application Structure](#application-structure)
+		- [Short Link vs. Short URL](#short-link-vs-short-url)
 		- [HTML](#html)
 		- [CSS](#css)
 		- [Javascript](#javascript)
@@ -24,6 +27,9 @@ The user can edit the short url by changing the URL extension to any alphanumeri
 
 ## Application Structure
 The front end handles the UI and input validation, and then sends POST requests to the express backend framework. 
+
+### Short Link vs. Short URL
+In this README and in the code, I use the terms short url, short link, and long url. The `long url` is the full extended URL that the user inputs, that the short link will redirect to. The `short link` is the full short link, such as [short.czjlee.com/gh](https://short.czjlee.com/gh). The `short url` is the text after the /. In the short link [short.czjlee.com/gh](https://short.czjlee.com/gh), the short url refers to "gh". 
 
 ### HTML
 The HTML elements are built using Bootstrap. 
