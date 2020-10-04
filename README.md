@@ -41,7 +41,7 @@ The CSS theme for Bootstrap is [Flatly](https://bootswatch.com/flatly/) by Boots
 Javascript functions are used to handle button clicks and validation. URL Validation is done using RegExp. The rest of the functions handle the UI changes on button clicks, and sending POST requests to the back end. A copy function is also implemented to automatically copy the short link to the users clipboard when the button is clicked. 
 
 ### Express
-Express routing is used to redirect short URLS. It retrieves the long url from the database, and redirects the user. A not found page is given if the short link does not exist. 
+Express routing is used to redirect short links. It retrieves the long url from the database, and redirects the user. A not found page is given if the short link does not exist. 
 
 ### MongoDB
 MongoDB is used as a database to store URLs. POST requests are made when a user creates or edits a short url, and GET requests are made when a user uses a short link. 
@@ -57,19 +57,19 @@ Each URL object is stored in a `urls` collection. The structure for each object 
 }
 ```
 
-The object `_id` is also used as the short url, since it must be unique. The `url` is the long url link that the short link redirects to. `Clicks` is the number of times the short link has been used. The date that the short url was created is saved in a ISO format in `date_created`. 
+The object `_id` is also used as the short url, since it must be unique. The `url` is the long url link that the short link redirects to. `Clicks` is the number of times the short link has been used. The date that the short url was created is saved in as ISO format in `date_created`. 
 
 ## Future Changes
 There are a handful of improvements I would make to this app if development were to continue. 
 
 ### User Privileges 
-It would be nice to allow users to edit or delete short urls that they have made in the past. To do so, I would ask the user to log in to an account, and associate every short link they created with that account. That account would then be able to edit or delete previously created short links. A list of previous short links would be presented below the main card. 
+It would be nice to allow users to edit or delete short links that they have made in the past. To do so, I would ask the user to log in to an account, and associate every short link they created with that account. That account would then be able to edit or delete previously created short links. A list of previous short links would be presented below the main card. 
 
 ### UI Updates
-Most of the Javascript is handling changing the visibility of the buttons and input fields. This can be tidied up using a more advanced frame work, but I wanted to stick to vanilla JS for this app. 
+Most of the Javascript is handling changing the visibility of the buttons and input fields. This can be tidied up using a tidier HTML/JS framework, but I wanted to stick to vanilla JS for this app. 
 
 ### POST vs. PUT
-At this time, editing a created URL sends a post request to create a new object in the database. Thus, both the randomly generated short link and the user created short link both redirect to the same long url link. While this does not really matter at this scale, it would be nice to make the distinction if user accounts are implemented. 
+At this time, editing a created URL sends a post request to create a new object in the database. Thus, both the randomly generated short link and the user created short link both redirect to the same long url. While this does not really matter at this scale, it would be nice to make the distinction if user accounts are implemented. 
 
 ### Better MongoDB Access
-A lot of building this app was learning how to use MongoDB in Node.js. The intention was to create a sustained connection in the backed app, as to not waste time creating a new connection promise each time a URL was created or a short link was used. However, the current implementation is a bit clumsy, and has many if/else statements stacked to deal with the asynchronous nature of MongoDB in Node.js. 
+A lot of building this app was learning how to use MongoDB in Node.js. The intention was to create a sustained connection to the database in the backed app, as to not waste time creating a new connection promise each time a URL was created or a short link was used. However, the current implementation is a bit clumsy, and has many if/else statements stacked to deal with the asynchronous nature of MongoDB in Node.js. 
