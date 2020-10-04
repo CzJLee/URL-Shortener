@@ -26,7 +26,7 @@ The user enters a valid URL, and a short URL is generated. URL validation requir
 The user can edit the short url by changing the URL extension to any alphanumeric string as long as it is not already taken. 
 
 ## Application Structure
-The front end handles the UI and input validation, and then sends POST requests to the express backend framework. 
+The front end handles the UI and input validation, and then sends POST requests to the express back end framework. 
 
 ### Short Link vs. Short URL
 In this README and in the code, I use the terms short url, short link, and long url. The `long url` is the full extended URL that the user inputs, that the short link will redirect to. The `short link` is the full short link, such as [short.czjlee.com/gh](https://short.czjlee.com/gh). The `short url` is the text after the /. In the short link [short.czjlee.com/gh](https://short.czjlee.com/gh), the short url refers to "gh". 
@@ -35,10 +35,10 @@ In this README and in the code, I use the terms short url, short link, and long 
 The HTML elements are built using Bootstrap. 
 
 ### CSS 
-The CSS theme for Bootstrap used is [Flatly](https://bootswatch.com/flatly/) by Bootswatch Font Awesome is used for the Link icon. 
+The CSS theme for Bootstrap is [Flatly](https://bootswatch.com/flatly/) by Bootswatch. Font Awesome is used for the link icon. 
 
 ### Javascript
-Javascript functions are used to handle button clicks and validation. URL Validation is done using RegExp. The rest of the functions handle the UI changes on button clicks, and sending POST requests to the backend. A copy function is also implemented to automatically copy the short link to the users clipboard when the button is clicked. 
+Javascript functions are used to handle button clicks and validation. URL Validation is done using RegExp. The rest of the functions handle the UI changes on button clicks, and sending POST requests to the back end. A copy function is also implemented to automatically copy the short link to the users clipboard when the button is clicked. 
 
 ### Express
 Express routing is used to redirect short URLS. It retrieves the long url from the database, and redirects the user. A not found page is given if the short link does not exist. 
