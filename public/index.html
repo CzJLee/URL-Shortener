@@ -26,11 +26,16 @@
 					</div>
 				</div>
 
+
 				<div class="alert alert-primary" role="alert" id="url-alert" hidden>
 					Abracadabra! Your new link is <a href="" class="alert-link" id="short-link" target="_blank"></a>
 				</div>
 
-				<div class="alert alert-danger" role="alert" id="danger-alert" hidden>
+				<div class="alert alert-warning" role="alert" id="alert-warning" hidden>
+					Please enter a valid URL. The magic won't work on duds. 
+				</div>
+
+				<div class="alert alert-danger" role="alert" id="alert-danger" hidden>
 					Unable to generate short URL.
 				</div>
 
@@ -46,9 +51,18 @@
 					<input type="text" class="form-control" id="short-url" aria-describedby="basic-addon3">
 				</div>
 
+				<div class="alert alert-warning" role="alert" id="short-url-alert-warning" hidden>
+					Arcane magic only allows letters and numbers.
+				</div>
+
+				<div class="alert alert-warning" role="alert" id="short-url-alert-taken" hidden>
+					This URL has already been summoned. Please choose another. 
+				</div>
+
 				<div>
 					<button type="button" class="btn btn-info" id="save-button" onclick="saveButton()" hidden>Save Link</button>
 				</div>
+				
 			</div>
 		</div>
 	</div>
