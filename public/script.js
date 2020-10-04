@@ -56,18 +56,39 @@ function shortenURL() {
 	}
 }
 
+// This works on localhost, but does not seem to work in production. Most likely it needs the Clipboard API permissions. 
+// function copyToClipboard() {
+// 	const textToCopy =
+// 		"short.czjlee.com/" + document.getElementById("short-url").value;
+// 	navigator.clipboard.writeText(textToCopy).then(
+// 		function () {
+// 			document.getElementById("copy-button").innerHTML = "Copied!";
+// 		},
+// 		function (error) {
+// 			alert("Copy Failed");
+// 		}
+// 	);
+// }
+
 function copyToClipboard() {
-	const textToCopy =
-		"short.czjlee.com/" + document.getElementById("short-url").value;
-	navigator.clipboard.writeText(textToCopy).then(
-		function () {
-			document.getElementById("copy-button").innerHTML = "Copied!";
-		},
-		function (error) {
-			alert("Copy Failed");
-		}
-	);
-}
+	// https://www.30secondsofcode.org/blog/s/copy-text-to-clipboard-with-javascript
+	const textToCopy = "short.czjlee.com/" + document.getElementById("short-url").value;
+	// Create a new text area to copy from, and then remove it afterwords. 
+	const el = document.createElement('textarea');
+	el.value = textToCopy;
+	// Try the best to hide it from view so it does not interrupt the UI.
+	el.setAttribute('readonly', '');
+	el.style.position = 'absolute';
+	el.style.left = '-9999px';
+	document.body.appendChild(el);
+	el.select();
+	// Copy the text
+	document.execCommand('copy');
+	// Remove element
+	document.body.removeChild(el);
+	// UI feedback
+	document.getElementById("copy-button").innerHTML = "Copied!";
+};
 
 function editButton() {
 	document.getElementById("short-url-group").hidden = false;
